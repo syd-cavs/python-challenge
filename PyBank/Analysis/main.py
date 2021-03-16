@@ -1,5 +1,6 @@
 import os
 import csv
+from itertools import count
 
 csvpath = os.path.join('..', 'Resources', 'budget_data.csv')
 
@@ -10,14 +11,17 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")    
     
     for row in csvreader:
-        months = row[0]
-        profit_losses = int(row[1])
-        #print(row[1])
         
-        #total_months =
+        profit_losses = int(row[1])
+        
+        months = count(row[0])
+        print(months)
+        
+        #def total_profit():
+        #    total_profit = sum()
+        #total_profit(profit_losses)
         #print(total_months)
         
         #total_profit = sum(profit_losses)
