@@ -1,42 +1,61 @@
 import os
 import csv
 
-csvpath = os.path.join('Resources', 'election_data.csv')
+csvpath = os.path.join('..', 'Resources', 'election_data.csv')
 
 print('Election Results')
 print('---------------------------')
+
+def pypoll_data(election_data):
+    total_votes = int(election_data[0])
+    candidates = str(election_data[2])
+    khan = 0
+    correy = 0        
+    li = 0
+    otooley = 0
+    if candidates == "Khan":
+        khan = khan + 1
+    elif candidates == "Correy":
+        correy == correy + 1
+    elif candidates == "Li":
+        li = li + 1
+    elif candidates == "O'Tooley":
+        otooley = otooley + 1    
+        
+    print(f'Khan {khan}')
 
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     csv_header = next(csvreader)
     
-    for row in csvreader:
+    #for row in csvreader:
         #part 1 total number of votes
-        votes = row[0]
+        #total_votes = len(column[0])
+        #print(total_votes)
         
         #part 2 list of candidates who received votes
-        candidates = row[2]
-        khan = 0
-        correy = 0
-        li = 0
-        otooley = 0
-        
-        if candidates == "Khan":
-            khan = khan + 1
-        elif candidates == "Correy":
-            correy == correy + 1
-        elif candidates == "Li":
-            li = li + 1
-        elif candidates == "O'Tooley":
-            otooley = otooley + 1
+        #candidates = row[2]
+        #khan = 0
+        #correy = 0
+        #li = 0
+        #otooley = 0
+
+        #if candidates == "Khan":
+        #    khan = khan + 1
+        #elif candidates == "Correy":
+        #    correy == correy + 1
+        #elif candidates == "Li":
+        #    li = li + 1
+        #elif candidates == "O'Tooley":
+        #    otooley = otooley + 1  
             
-        print(khan)
-            
-        
+    
         #part 3 percentage of votes each candidate won
+        #each candidate divided by total votes * 100
         
         #part 4 winner of the election 
+        #publishing the candidate with the most votes
         
         
         

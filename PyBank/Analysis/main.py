@@ -24,10 +24,12 @@ with open(csvpath) as csvfile:
         print(total_profit)
     
         #part 3 calculate the changes in profit/losses, find the average of this change
+        average_change = total_profit / total_months
         
         #part 4 greatest increase in profits
+        #finding the max
         
         #part 4 greatest decrease in profits 
-        
+        #finding the min
         
     
