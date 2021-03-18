@@ -1,6 +1,7 @@
 import os
 import csv
 
+f= open("PyBank.txt", "w+") 
 csvpath = os.path.join('..', 'Resources', 'budget_data.csv')
 
 print('Financial Analysis')
@@ -47,9 +48,21 @@ with open(csvpath) as csvfile:
                      
     length = len(change_list) - 1
     average_change = sum(change_list[1:]) / length
-              
-print(f'Total Months: {total_months}')  
-print(f'Total: ${total_profit}')
-print(f'Average Change: {average_change}')
-print(f'Greatest Increase in Profits: {max_date} ({max_value})')
-print(f'Greatest Decrease in Profits: {min_date} ({min_value})')
+             
+    print(f'Total Months: {total_months}')  
+    print(f'Total: ${total_profit}')
+    print(f'Average Change: {average_change}')
+    print(f'Greatest Increase in Profits: {max_date} ({max_value})')
+    print(f'Greatest Decrease in Profits: {min_date} ({min_value})')
+    
+    #text file exports
+    f.write('Financial Analysis')
+    f.write('---------------------------')  
+    f.write(f'Total Months: {total_months}')
+    f.write(f'Total: ${total_profit}')
+    f.write(f'Average Change: {average_change}')
+    f.write(f'Greatest Increase in Profits: {max_date} ({max_value})')
+    f.write(f'Greatest Decrease in Profits: {min_date} ({min_value})')
+
+
+f.close()
