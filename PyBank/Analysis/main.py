@@ -12,6 +12,14 @@ with open(csvpath) as csvfile:
     
     total_months = 0
     total_profit = 0
+    
+    previous = 0
+    change_list = []
+    
+    max_value = 0
+    max_date = ""
+    min_value = 0
+    min_date = ""
 
     for row in csvreader:
         
@@ -22,17 +30,26 @@ with open(csvpath) as csvfile:
         
         #part 2 the net total of profit/losses
         net_total = int(row[1])
-        if net_total > 1:
-            total_profit = total_profit + sum(net_total)
+        total_profit = total_profit + net_total
     
         #part 3 calculate the changes in profit/losses, find the average of this change
-        #average_change = total_profit / total_months
+        change = net_total - previous
+        change_list.append(change)
+        previous = int(row[1])
         
-        #part 4 greatest increase in profits
-        #finding the max
-        
-        #part 4 greatest decrease in profits 
-        #finding the min
-        
-print(total_months)  
-print(total_profit)
+        #part 4 greatest increase in profits, decrease in profits
+        if change > max_value:
+            max_value = change
+            max_date = row[0]
+        if change < min_value:   
+            min_value = change
+            min_date = row[0]
+                     
+    length = len(change_list) - 1
+    average_change = sum(change_list[1:]) / length
+              
+print(f'Total Months: {total_months}')  
+print(f'Total: ${total_profit}')
+print(f'Average Change: {average_change}')
+print(f'Greatest Increase in Profits: {max_date} ({max_value})')
+print(f'Greatest Decrease in Profits: {min_date} ({min_value})')
