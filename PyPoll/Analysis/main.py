@@ -44,15 +44,25 @@ otooley_percent = round((int(otooley) / int(total_votes)) * 100, 2)
         
         #part 4 winner of the election 
         #publishing the candidate with the most votes
+if ((khan > correy) and (khan > li) and (khan > otooley)):
+       winner = "Khan"
+elif ((correy > khan) and (correy > li) and (correy > otooley)):
+       winner = "Correy"
+elif ((li > khan) and (li > correy) and (li > otooley)):
+       winner = "Li"
+elif ((otooley > khan) and (otooley > correy) and (otooley > li)):
+       winner = "O'Tooley"
 
+        #bring it all together
 
+otoole = "O'Tooley"
 
-
-        
-        
-        
-        
-        # row [0] is the voter ID number, row[1] is the county, row[2] is the candidate
 print(total_votes)
-print(khan, correy, li, otooley)
-print(khan_percent, correy_percent, li_percent, otooley_percent)
+print('---------------------------')
+print(f'Khan: {khan_percent}00% ({khan}')
+print(f'Correy: {correy_percent}00% ({correy}')
+print(f'Li: {li_percent}00% ({li})')
+print(f'{otoole}: {otooley_percent}00% ({otooley})')
+print('---------------------------')     
+print(winner)
+print('---------------------------')
